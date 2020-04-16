@@ -1,0 +1,18 @@
+{
+    "name": "Dungeon Treasures",
+    "dependencies": {
+        "device": "*",
+        "controller": "*",
+        "animation": "*"
+    },
+    "description": "",
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md"
+    ],
+    "preferredEditor": "blocksprj",
+    "testFiles": [
+        "test.ts"
+    ]
+}
