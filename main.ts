@@ -582,11 +582,11 @@ scene.onOverlapTile(SpriteKind.Player, sprites.builtin.field1, function (sprite,
     }
 })
 function MelodyPlay () {
-    music.playMelody("C E C5 F C5 F C5 F ", 500)
+    music.playMelody("C A C5 C C5 C C5 C ", 500)
     for (let index2 = 0; index2 < 2; index2++) {
-        music.playMelody("C5 F C5 F C5 F C5 F ", 500)
+        music.playMelody("C5 C C5 C C5 C C5 C ", 500)
     }
-    music.playMelody("C5 F E D E F A C5 ", 500)
+    music.playMelody("C5 B A G G A B C5 ", 500)
 }
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestClosed, function (sprite, location) {
     if (hasKey) {
