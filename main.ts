@@ -546,11 +546,11 @@ d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d 
     game.showLongText("Press button B to talk. ", DialogLayout.Bottom)
 }
 function MelodyPlay () {
-    music.playMelody("C D C5 C C5 C C5 C ", 500)
+    music.playMelody("C E C5 F C5 F C5 F ", 500)
     for (let index2 = 0; index2 < 2; index2++) {
-        music.playMelody("C5 C C5 C C5 C C5 C ", 500)
+        music.playMelody("C5 F C5 F C5 F C5 F ", 500)
     }
-    music.playMelody("C5 A F D C E G B ", 500)
+    music.playMelody("C5 F E D E F A C5 ", 500)
 }
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestClosed, function (sprite, location) {
     if (hasKey) {
