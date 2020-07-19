@@ -591,8 +591,8 @@ function MelodyPlay () {
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestClosed, function (sprite, location) {
     if (hasKey) {
         tiles.setTileAt(location, sprites.dungeon.chestOpen)
-        info.setScore(100)
-        game.over(true, effects.hearts)
+        info.setScore(10000)
+        game.over(true)
     }
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.buttonOrange, function (sprite, location) {
