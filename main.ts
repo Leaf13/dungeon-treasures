@@ -21,6 +21,25 @@ namespace myTiles {
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `
+    //% blockIdentity=images._tile
+    export const tile1 = img`
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d f f f f f f f d d d d 
+d d d d d f f f f f f f d d d d 
+d d d d d f f f f f f f d d d d 
+d d d d d f f f f f f f d d d d 
+d d d d d f f f f f f f d d d d 
+d d d d d f f f f f f f d d d d 
+d d d d d f f f f f f f d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+d d d d d d d d d d d d d d d d 
+`
 }
 controller.up.onEvent(ControllerButtonEvent.Released, function () {
     animation.stopAnimation(animation.AnimationTypes.All, mySprite)
@@ -205,6 +224,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.key, function (sprite, otherSpri
     mySprite2.destroy()
     music.powerUp.playUntilDone()
 })
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava1, function (sprite, location) {
+    game.over(false)
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava0, function (sprite, location) {
+    game.over(false)
+})
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
@@ -341,7 +366,7 @@ f f f f f f f f f f f f f f f f
     hasKey = false
     mySprite2.setPosition(500, 66)
     tiles.setTilemap(tiles.createTilemap(
-            hex`320032000302020202020202020202020202020204030202020202020202020202020202020403020202020202020202020202020204151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a251a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1f1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a261a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a20201a1a1a1a1a1a1a1a1a1a1a1a1a1a1a24241a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a20201a1a1a1a1a1a1a1a1a1a1a1a1a1a1a24241a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a20201a1a1a1a1a1a1a1a1a1a1a1a1a1a1a24241a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a051b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1e1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1e1b1d1d1010101d1d1d1d1d1d1d1d1d1e0302020202020202020202020202020202020202020202020202020202020202020202020210101002020202020202020204151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a0f1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a051b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1e`,
+            hex`320032000302020202020202020202020202020204030202020202020202020202020202020403020202020202020202020202020204151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a251a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1f1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a261a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a20201a1a1a1a1a1a1a1a1a1a1a1a1a1a1a24241a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a20201a1a1a1a1a1a1a1a1a1a1a1a1a1a1a24241a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a20201a1a1a1a1a1a1a1a1a1a1a1a1a1a1a24241a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05141a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a1a1a1a1a1a1a1a1a051b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1e1b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1e1b1d1d1010101d1d1d1d1d1d1d1d1d1e0302020202020202020202020202020202020202020202020202020202020202020202020210101002020202020202020204151a1a1a1a1a1a2c1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a2d1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a2c1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a1a1a1a1a2d1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a05151a1a0f1a1a1a2d1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a2e051b1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1d1e`,
             img`
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 2 . . . . . . . . . . . . . . . 2 2 . . . . . . . . . . . . . . . 2 2 . . . . . . . . . . . . . . 2 
@@ -394,7 +419,7 @@ f f f f f f f f f f f f f f f f
 2 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 `,
-            [myTiles.tile0,sprites.dungeon.floorDark0,sprites.dungeon.greenOuterNorth0,sprites.dungeon.greenOuterNorthWest,sprites.dungeon.greenOuterNorthEast,sprites.dungeon.greenOuterEast0,sprites.dungeon.purpleOuterNorthWest,sprites.dungeon.purpleOuterNorth1,sprites.dungeon.purpleOuterNorthEast,sprites.dungeon.purpleOuterEast0,sprites.dungeon.purpleInnerNorthEast,sprites.dungeon.purpleInnerNorthWest,sprites.dungeon.purpleInnerSouthWest,sprites.dungeon.purpleInnerSouthEast,sprites.dungeon.collectibleRedCrystal,sprites.dungeon.chestClosed,sprites.castle.rock0,sprites.dungeon.stairNorth,sprites.dungeon.purpleSwitchUp,sprites.dungeon.greenSwitchUp,sprites.dungeon.greenOuterWest1,sprites.dungeon.greenOuterWest0,sprites.dungeon.greenInnerNorthWest,sprites.dungeon.greenInnerNorthEast,sprites.dungeon.greenInnerSouthWest,sprites.dungeon.greenInnerSouthEast,sprites.dungeon.floorLight0,sprites.dungeon.greenOuterSouthEast,sprites.dungeon.greenOuterSouth0,sprites.dungeon.greenOuterSouth1,sprites.dungeon.greenOuterSouthWest,sprites.dungeon.buttonTeal,sprites.dungeon.hazardSpike,sprites.dungeon.floorLight2,sprites.dungeon.doorLockedWest,sprites.dungeon.greenSwitchDown,sprites.castle.rock1,sprites.dungeon.buttonPink,sprites.dungeon.buttonOrange,sprites.dungeon.buttonOrangeDepressed,sprites.dungeon.buttonPinkDepressed,sprites.dungeon.buttonTealDepressed,sprites.dungeon.chestOpen],
+            [myTiles.tile0,sprites.dungeon.floorDark0,sprites.dungeon.greenOuterNorth0,sprites.dungeon.greenOuterNorthWest,sprites.dungeon.greenOuterNorthEast,sprites.dungeon.greenOuterEast0,sprites.dungeon.purpleOuterNorthWest,sprites.dungeon.purpleOuterNorth1,sprites.dungeon.purpleOuterNorthEast,sprites.dungeon.purpleOuterEast0,sprites.dungeon.purpleInnerNorthEast,sprites.dungeon.purpleInnerNorthWest,sprites.dungeon.purpleInnerSouthWest,sprites.dungeon.purpleInnerSouthEast,sprites.dungeon.collectibleRedCrystal,sprites.dungeon.chestClosed,sprites.castle.rock0,sprites.dungeon.stairNorth,sprites.dungeon.purpleSwitchUp,sprites.dungeon.greenSwitchUp,sprites.dungeon.greenOuterWest1,sprites.dungeon.greenOuterWest0,sprites.dungeon.greenInnerNorthWest,sprites.dungeon.greenInnerNorthEast,sprites.dungeon.greenInnerSouthWest,sprites.dungeon.greenInnerSouthEast,sprites.dungeon.floorLight0,sprites.dungeon.greenOuterSouthEast,sprites.dungeon.greenOuterSouth0,sprites.dungeon.greenOuterSouth1,sprites.dungeon.greenOuterSouthWest,sprites.dungeon.buttonTeal,sprites.dungeon.hazardSpike,sprites.dungeon.floorLight2,sprites.dungeon.doorLockedWest,sprites.dungeon.greenSwitchDown,sprites.castle.rock1,sprites.dungeon.buttonPink,sprites.dungeon.buttonOrange,sprites.dungeon.buttonOrangeDepressed,sprites.dungeon.buttonPinkDepressed,sprites.dungeon.buttonTealDepressed,sprites.dungeon.chestOpen,myTiles.tile1,sprites.dungeon.hazardLava0,sprites.dungeon.hazardLava1,sprites.builtin.field1,sprites.builtin.field0],
             TileScale.Sixteen
         ))
     scene.setBackgroundImage(img`
@@ -522,6 +547,8 @@ d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d 
     o1 = tiles.getTilesByType(sprites.dungeon.hazardSpike)
     list = tiles.getTilesByType(sprites.castle.rock1)
     index = tiles.getTilesByType(sprites.castle.rock0)
+    _new = tiles.getTilesByType(sprites.dungeon.hazardLava1)
+    new2 = tiles.getTilesByType(sprites.dungeon.hazardLava0)
     mySprite = sprites.create(img`
 . . . . . . f f f f . . . . . . 
 . . . . f f f 2 2 f f f . . . . 
@@ -545,6 +572,15 @@ d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d d 
     game.showLongText("Move with the buttons.", DialogLayout.Bottom)
     game.showLongText("Press button B to talk. ", DialogLayout.Bottom)
 }
+scene.onOverlapTile(SpriteKind.Player, sprites.builtin.field1, function (sprite, location) {
+    tiles.setTileAt(location, sprites.builtin.field0)
+    for (let value3 of _new) {
+        tiles.setTileAt(value3, sprites.dungeon.floorLight0)
+    }
+    for (let value4 of new2) {
+        tiles.setTileAt(value4, sprites.dungeon.floorLight0)
+    }
+})
 function MelodyPlay () {
     music.playMelody("C E C5 F C5 F C5 F ", 500)
     for (let index2 = 0; index2 < 2; index2++) {
@@ -555,14 +591,15 @@ function MelodyPlay () {
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestClosed, function (sprite, location) {
     if (hasKey) {
         tiles.setTileAt(location, sprites.dungeon.chestOpen)
+        info.setScore(100)
         game.over(true, effects.hearts)
     }
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.buttonOrange, function (sprite, location) {
     tiles.setTileAt(location, sprites.dungeon.buttonOrangeDepressed)
-    for (let value3 of o1) {
-        tiles.setTileAt(value3, sprites.dungeon.floorLight0)
-        tiles.setWallAt(value3, false)
+    for (let value32 of o1) {
+        tiles.setTileAt(value32, sprites.dungeon.floorLight0)
+        tiles.setWallAt(value32, false)
     }
 })
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -641,6 +678,8 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+let new2: tiles.Location[] = []
+let _new: tiles.Location[] = []
 let o1: tiles.Location[] = []
 let mySprite2: Sprite = null
 let hasKey = false
